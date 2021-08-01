@@ -9,10 +9,16 @@
 int main()
 {
 	int ret = 0;
-	char play_board[8][8][8];
+	int player_flag = 0;
+	char player_piece[8]; // ● or ◯
+	//char play_board[8][8][8];
 
-	Init_Othello_param(play_board);
+	Init_Othello_param();
 
-	ret = print_Othello(play_board);
+	for (int i = 0; i<60; i++){
+		ret = place_a_piece(&player_flag, player_piece);
+	}
+
+	ret = print_Othello();
 	return 0;
 }
