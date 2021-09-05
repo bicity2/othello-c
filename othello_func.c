@@ -114,8 +114,6 @@ int check_can_I_set_piece(int index_num, char player_piece[8],int updown , int r
 	 *      left	: 3 (3+0) *				   *	  right	: 5 (3+2) *
 	 * down left	: 6 (6+0) * down : 7 (6+1) * down right : 8 (6+2) *
 	 * ALL is OK    : 0x1EF */
-	 printf("updown:%d | rightleft:%d\n", updown, rightleft);
-	 printf("RETURN : 0x%d\n", 1<<((updown+1)*3 + rightleft+1));
 	return 1<<((updown+1)*3 + rightleft+1);
 }
 
@@ -173,4 +171,31 @@ int place_a_piece(int *player_flag, char player_piece[8])
 		printf("put_flag = 0x%x\n", put_flag);
 		return 0;
 	}
+}
+
+/* game judge */
+int game_judge()
+{
+	int count_white=0;
+	int i,j;
+	for(i=0;i<8;i++){
+		for(j=0;j<8;j++){
+			if(strcmp(play_board[i][j], "● ")==0)
+				count_white+=1;
+		}
+	}
+
+	if(count_white>18){
+		printf("Win:●\n");
+		printf("●:%d\n◯:%d\n", count_white, 64-count_white);
+	} else if(count_white==18){
+		printf("Draw\n");
+	} else if(count_white<18){
+		printf("Win:◯\n");
+		printf("●:%d\n◯:%d\n", count_white, 64-count_white);
+	} else {
+		printf("System Error\n");
+	}
+
+	return 0;
 }

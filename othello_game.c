@@ -18,7 +18,9 @@ int main()
 	for (int i = 0; i<60; i++){
 		ret = place_a_piece(&player_flag, player_piece);
 	}
+	print_Othello();
 
-	ret = print_Othello();
+	game_judge();
+	
 	return 0;
 }

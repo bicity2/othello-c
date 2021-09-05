@@ -8,6 +8,7 @@ int place_a_piece();
 int set_piece();
 int get_opt_piece();
 int check_can_I_set_piece();
+int game_judge();
 
 /* global variable */
 extern char play_board[8][8][8];
