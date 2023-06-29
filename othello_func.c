@@ -78,6 +78,9 @@ int check_can_I_set_piece(int index_num, char player_piece[8],int updown , int r
 		(pick_index_num+11)/10 == 9)   /* over bottom */
 	{
 		return 0;
+	} else {
+		/* T.B.D */
+		/* If over board, detect error. */
 	}
 
 	get_opt_piece(player_piece, opt_piece);
@@ -86,13 +89,20 @@ int check_can_I_set_piece(int index_num, char player_piece[8],int updown , int r
 	if(strncmp(play_board[pick_index_num/10][pick_index_num%10], opt_piece, 3)!=0)
 		return 0; // left is not opt piece
 
-	while(((pick_index_num+11)%10) != 1||
+
+/* T.B.D --- >>> */
+/* Maby, some code is wrong.
+ * TBD is written in the corresponding place.
+ * TBD 1 : Maby last while jude is skippe?
+ * TBD 2 : Maby it's can detect only left-up, because I think right is not -1, it seems over 10.
+ */
+	while(((pick_index_num+11)%10) != 1|| // TBD 1
 			((pick_index_num+11)%10) != 8||
 			((pick_index_num+11)/10) != 1||
 			((pick_index_num+11)/10) != 8){
 		pick_index_num = pick_index_num + rightleft + updown*10;
 		if((strncmp(play_board[pick_index_num/10][pick_index_num%10], player_piece, 3) == 0) ||
-		pick_index_num/10 == -1)
+		pick_index_num/10 == -1) // TBD 2
 			break; /* find player piece over left or get most left */
 		else if(strncmp(play_board[pick_index_num/10][pick_index_num%10], opt_piece, 3) != 0)
 			return 0;; /* there is no player piece over left */
@@ -108,6 +118,7 @@ int check_can_I_set_piece(int index_num, char player_piece[8],int updown , int r
 		set_piece(pick_index_num, player_piece);
 		pick_index_num = pick_index_num - rightleft - updown*10;
 	}
+/* <<< --- T.B.D */
 
 	/* Check list bit[x]
 	 * 	 up left	: 0 (0+0) *   up : 1 (0+1) *   up right	: 2 (0+2) * 
@@ -165,6 +176,8 @@ int place_a_piece(int *player_flag, char player_piece[8])
 			printf("please retry\n");
 			continue;
 		}
+/* T.B.D
+ * Maby, under if sentence is wast, because set pieces in check_can_I_set_Piece func */
 		if(put_flag & 0x1EF)
 			set_piece(index_num, player_piece);
 
