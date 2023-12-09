@@ -1,3 +1,9 @@
+/********************
+ * Othello Game     *
+ * Copyright Bicity *
+ * 2021/07/06       *
+*********************/
+
 #ifndef INCLUDE_OTHELLO_FUNC
 #define INCLUDE_OTHELLO_FUNC
 
