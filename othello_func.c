@@ -1,3 +1,9 @@
+/********************
+ * Othello Game     *
+ * Copyright Bicity *
+ * 2021/07/06       *
+*********************/
+
 #include "othello_func.h"
 #include <stdio.h>
 #include <string.h>
