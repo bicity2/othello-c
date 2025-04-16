@@ -5,13 +5,13 @@ Othello Game made by C language programing
 You can play othello with CUI.
 
 ### Game start screen
-![スタート画面](./images/game-start-screen.png)
+<img src="./images/game-start-screen.png" alt="スタート画面" width="50%">
 
 ### Progress screen
-![スタート画面](./images/game-process.png)
+<img src="./images/game-process.png" alt="プレイ画面" width="50%">
 
 ### Game results screen
-![スタート画面](./images/game-result.png)
+<img src="./images/game-result.png" alt="ゲーム結果画面" width="50%">
 
 ---
 
